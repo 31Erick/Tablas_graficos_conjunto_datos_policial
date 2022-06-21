@@ -81,6 +81,7 @@ grafico_cantidad_delitos %>%
   config(locale = 'es')
 ```
 
+# Gráfico de cantidad de delitos por mes 
 
 
 # Gráfico de cantidad de delitos por genero
@@ -98,6 +99,8 @@ grafico_cantidad_delitos_genero <-
 
 ggplotly(grafico_cantidad_delitos_genero) %>% config(locale = 'es')
   
+
+
 ```
 
 # Gráfico  de la cantidad de delitos cantones de San José, Alajuela, Cartago Y Heredia.
