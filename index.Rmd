@@ -62,7 +62,7 @@ Datos_policiales %>%
   )
 ```
 
-# Grafico Cantidad de delitos Por tipo
+# Gráfico Cantidad de delitos Por tipo
 
 ```{r Grafico_cantidad_delito_tipo, message=FALSE}
 grafico_cantidad_delitos <-
@@ -81,19 +81,20 @@ grafico_cantidad_delitos %>%
   config(locale = 'es')
 ```
 
-# Grafico de cantidad de delitos por mes 
+# Gráfico de cantidad de delitos por mes 
 
 
+# Gráfico de cantidad de delitos por genero
 
-```{r}
+```{r Grafico_cantidad_delitos_genero}
 grafico_cantidad_delitos_genero <-
   Datos_policiales %>%
   ggplot(aes(x = Delito, fill = Genero)) +
   geom_bar(position = "fill") +
-  ggtitle("Cantidad de diamantes por tipo de corte y claridad") +
-  xlab("Corte") +
+  xlab("Tipo de delito") +
   ylab("Cantidad") +
-  labs(fill = "Claridad") +
+  labs(fill = "Género") +
+  coord_flip() +
   theme_minimal()
 
 ggplotly(grafico_cantidad_delitos_genero) %>% config(locale = 'es')
@@ -102,3 +103,22 @@ ggplotly(grafico_cantidad_delitos_genero) %>% config(locale = 'es')
 
 ```
 
+# Gráfico  de la cantidad de delitos cantones de San José, Alajuela, Cartago Y Heredia.
+
+```{r Grafico_cantidad_delito_tipo, message=FALSE}
+grafico_cantidad_delitos_cantones <-
+  Datos_policiales %>%
+  filter(Canton == "SAN JOSE" | Canton == "ALAJUELA" | Canton == "CARTAGO"|Canton == "HEREDIA") %>%
+  ggplot(aes(x = Canton), y = Delito) +
+  geom_bar() +
+  xlab("Cantón") +
+  ylab("Cantidad") +
+
+  theme_minimal()
+
+
+ggplotly(grafico_cantidad_delitos_cantones) %>% config(locale = 'es')
+
+  
+
+```
