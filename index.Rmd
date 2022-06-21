@@ -109,16 +109,16 @@ ggplotly(grafico_cantidad_delitos_genero) %>% config(locale = 'es')
 grafico_cantidad_delitos_cantones <-
   Datos_policiales %>%
   filter(Canton == "SAN JOSE" | Canton == "ALAJUELA" | Canton == "CARTAGO"|Canton == "HEREDIA") %>%
-  ggplot(aes(x = Canton), y = Delito) +
-  geom_bar() +
+  
+  ggplot(aes(x = Canton, y = Delito)) +
+  geom_bar(stat = "identity") +
+  ggtitle("Cantidad de casos positivos de covid-19 por cantón") +
   xlab("Cantón") +
   ylab("Cantidad") +
-
+  
   theme_minimal()
 
-
 ggplotly(grafico_cantidad_delitos_cantones) %>% config(locale = 'es')
-
   
 
 ```
